@@ -1,38 +1,229 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'Lim'; /* Ini nama panggilan yang akan kita gunakan nanti */
+  src: url('./fonts/Ibrand.ttf') format('truetype'); /* Sesuaikan nama file dan ekstensinya */
+  font-weight: normal;
+  font-style: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Menggunakan font modern Poppins dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: #f1f5f9; /* Latar belakang abu-abu sangat terang */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* === GAYA PANEL GLASSMORPHISM (Efek Blur Transparan) === */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* === GAYA TOMBOL === */
+.btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
+  font-family: 'Poppins', sans-serif;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.btn:active { transform: translateY(0); }
+
+.btn-add { background-color: #10b981; color: rgb(255, 255, 255); }
+.btn-save { background-color: #3b82f6; color: white; }
+.btn-logout { background-color: #ef4444; color: white; }
+.btn-google {
+  background-color: rgb(255, 255, 255);
+  color: #334155;
+  border: 1px solid #cbd5e1;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 10px;
+  font-size: 16px;
+  padding: 12px 24px;
+  margin-top: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+/* === MEMPERCANTIK KOTAK NODE REACT FLOW === */
+.react-flow__node-default {
+  border-radius: 12px !important;
+  border: 2px solid #e2e8f0 !important;
+  background: white !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  padding: 15px 25px !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 500 !important;
+  color: #1e293b !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Efek saat kotak disorot atau diklik */
+.react-flow__node-default:hover { border-color: #94a3b8 !important; }
+.react-flow__node-default.selected { 
+  border-color: #3b82f6 !important; 
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2) !important; 
+}
+
+.gsi-material-button {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-appearance: none;
+  background-color: WHITE;
+  background-image: none;
+  border: 1px solid #747775;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #1f1f1f;
+  cursor: pointer;
+  font-family: 'Roboto', arial, sans-serif;
+  font-size: 14px;
+  height: 40px;
+  letter-spacing: 0.25px;
+  outline: none;
+  overflow: hidden;
+  padding: 0 12px;
+  position: relative;
+  text-align: center;
+  -webkit-transition: background-color .218s, border-color .218s, box-shadow .218s;
+  transition: background-color .218s, border-color .218s, box-shadow .218s;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: auto;
+  max-width: 400px;
+  min-width: min-content;
+}
+
+.gsi-material-button .gsi-material-button-icon {
+  height: 20px;
+  margin-right: 10px;
+  min-width: 20px;
+  width: 20px;
+}
+
+.gsi-material-button .gsi-material-button-content-wrapper {
+  -webkit-align-items: center;
+  align-items: center;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  height: 100%;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.gsi-material-button .gsi-material-button-contents {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  font-family: 'Roboto', arial, sans-serif;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+
+.gsi-material-button .gsi-material-button-state {
+  -webkit-transition: opacity .218s;
+  transition: opacity .218s;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.gsi-material-button:disabled {
+  cursor: default;
+  background-color: #ffffff61;
+  border-color: #1f1f1f1f;
+}
+
+.gsi-material-button:disabled .gsi-material-button-contents {
+  opacity: 38%;
+}
+
+.gsi-material-button:disabled .gsi-material-button-icon {
+  opacity: 38%;
+}
+
+.gsi-material-button:not(:disabled):active .gsi-material-button-state, 
+.gsi-material-button:not(:disabled):focus .gsi-material-button-state {
+  background-color: #303030;
+  opacity: 12%;
+}
+
+.gsi-material-button:not(:disabled):hover {
+  -webkit-box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+}
+
+.gsi-material-button:not(:disabled):hover .gsi-material-button-state {
+  background-color: #303030;
+  opacity: 8%;
+}
+
+/* === GAYA CUSTOM NODE (EDIT & DELETE) === */
+.custom-node-container {
+  background: white;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  text-align: center;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.custom-node-container:hover {
+  border-color: #94a3b8;
+}
+
+/* Hilangkan padding bawaan react flow agar rapi */
+.react-flow__node-customNode {
+  padding: 0 !important;
+  border-radius: 12px !important;
+}
+
+.node-content {
+  padding: 15px 15px 5px 15px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.node-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding-bottom: 10px;
+}
+
+.node-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.node-btn:hover {
+  background: #f1f5f9;
 }
