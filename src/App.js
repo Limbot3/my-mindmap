@@ -282,7 +282,13 @@ function MindMapApp() {
   // === HALAMAN LOGIN ===
   if (!user) {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundImage: 'url("/bekro.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        height: '100vh', 
+        background: 'linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%)' 
+      }}>
         <div className="glass-panel" style={{ padding: '50px', textAlign: 'center', maxWidth: '400px' }}>
         <h2 style={{ margin: '0 0 10px 0', color: '#0f172a', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px', fontFamily: "'Lim', sans-serif" }}>
           <img src="/brei.svg" alt="Logo Brainstorm" width="80" height="80" />
